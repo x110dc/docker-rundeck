@@ -11,6 +11,9 @@ RUN dpkg -i /rundeck-2.0.3-1-GA.deb
 # the above DEB and made a single change: to remove the '&' from the end of the
 # 'nohup' line so the it wouldn't run in the background; there's probably a
 # better way to do this
+# patch: 
+#-       nohup su -s /bin/bash rundeck -c "$rundeckd" &>>/var/log/rundeck/service.log
+#+       nohup su -s /bin/bash rundeck -c "$rundeckd" &>>/var/log/rundeck/service.log &
 ADD rundeckd /etc/init.d/rundeckd
 USER rundeck
 CMD ["/etc/init.d/rundeckd", "start"]
