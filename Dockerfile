@@ -21,8 +21,7 @@ ADD ./install.sh /
 ENV RDPASS CH4NGE_Me
 
 # Change MYHOST to your IP or hostname
-#ENV MYHOST 127.0.0.1
-ENV MYHOST 192.36.215.176
+ENV MYHOST 127.0.0.1
 
 # Run the installation script
 RUN /install.sh
