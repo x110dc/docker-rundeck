@@ -3,7 +3,7 @@ MAINTAINER Daniel Craigmile
 ENV DEBIAN_FRONTEND noninteractive
 
 # Download Rundeck
-ADD http://download.rundeck.org/deb/rundeck-2.1.1-1-GA.deb /tmp/rundeck.deb
+ADD http://download.rundeck.org/deb/rundeck-2.1.2-1-GA.deb /tmp/rundeck.deb
 
 # Add supervisord services
 ADD ./supervisor /etc/supervisor
