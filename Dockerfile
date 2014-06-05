@@ -20,9 +20,6 @@ ADD ./install.sh /
 # Change Rundeck admin from default to CH4NGE_Me
 ENV RDPASS CH4NGE_Me
 
-# Change MYHOST to your IP or hostname
-ENV MYHOST 127.0.0.1
-
 # Run the installation script
 RUN /install.sh
 
