@@ -22,6 +22,8 @@ sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 
 sed -i "s/localhost:4440/$MYHOST:4440/g" /etc/rundeck/rundeck-config.properties
 
+echo "grails.mail.default.from=$MAILFROM" >> /etc/rundeck/rundeck-config.properties
+
 # Generate a new passwordless SSH key
 mkdir -p /var/lib/rundeck/.ssh/
 chown rundeck:rundeck /var/lib/rundeck/.ssh
