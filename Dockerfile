@@ -22,6 +22,7 @@ ENV RDPASS CH4NGE_Me
 
 # Run the installation script
 RUN /install.sh
+RUN chown rundeck /tmp/rundeck
 
 # Start the services with supervisord
 CMD ["/usr/bin/supervisord", "--nodaemon"]
