@@ -20,6 +20,8 @@ ADD ./install.sh /
 # Change Rundeck admin from default to CH4NGE_Me
 ENV RDPASS CH4NGE_Me
 
+ENV MYHOST 127.0.0.1
+
 # Run the installation script
 RUN /install.sh
 RUN chown rundeck /tmp/rundeck

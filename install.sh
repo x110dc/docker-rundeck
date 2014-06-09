@@ -16,8 +16,11 @@ sed -i 's/&>>\/var\/log\/rundeck\/service.log &$//g' /etc/init.d/rundeckd
 # Change the Rundeck admin password
 sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 
-# remove the grails.serverURL so that absolute URLs aren't generated
-sed -i '/grails.serverURL/d' /etc/rundeck/rundeck-config.properties
+## remove the grails.serverURL so that absolute URLs aren't generated
+# (this is needed for things like sending email:)
+#sed -i '/grails.serverURL/d' /etc/rundeck/rundeck-config.properties
+
+sed -i "s/localhost:4440/$MYHOST:4440/g" /etc/rundeck/rundeck-config.properties
 
 # Generate a new passwordless SSH key
 mkdir -p /var/lib/rundeck/.ssh/
