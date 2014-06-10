@@ -33,3 +33,6 @@ ssh-keygen -t rsa -f /var/lib/rundeck/.ssh/id_rsa -N ''
 echo -e "$RDPASS\n$RDPASS" | passwd
 sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd	# https://github.com/dotcloud/docker/issues/5663
+
+# do these things at runtime:
+cat /profile >> /etc/rundeck/profile

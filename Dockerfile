@@ -17,14 +17,16 @@ ADD ./cron.d /etc/
 # Add the install commands
 ADD ./install.sh /
 
+ADD ./profile /
+
 # Change Rundeck admin from default to CH4NGE_Me
-ENV RDPASS CH4NGE_Me
+ENV RDPASS RDPASS
 
 # Change this to your hostname (used for generating URLs):
-ENV MYHOST 127.0.0.1
+ENV MYHOST MYHOST
 
 # From address when sending email:
-ENV MAILFROM me@nowhere.org
+ENV MAILFROM MAILFROM
 
 # Run the installation script
 RUN /install.sh
