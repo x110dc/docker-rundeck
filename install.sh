@@ -1,10 +1,5 @@
 #!/bin/bash
 
-apt-get update
-apt-get -y upgrade
-apt-get install -y openjdk-6-jre openssh-client openssh-server cron supervisor
-mkdir -p /var/log/supervisor
-mkdir -p /var/run/sshd
 dpkg -i /tmp/rundeck.deb
 rm -f /tmp/rundeck.deb
 chown -R rundeck /etc/rundeck
