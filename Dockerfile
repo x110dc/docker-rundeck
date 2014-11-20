@@ -30,7 +30,6 @@ ADD http://download.rundeck.org/deb/rundeck-2.3.2-1-GA.deb /tmp/rundeck.deb
 RUN /install.sh
 RUN chown rundeck /tmp/rundeck
 
-# Start the services with supervisord
-CMD ["/usr/bin/supervisord", "--nodaemon"]
+ENTRYPOINT /run.sh
 
 EXPOSE 4440 22
