@@ -17,14 +17,14 @@ sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 sed -i "s/localhost:4440/$MYHOST:4440/g" /etc/rundeck/rundeck-config.properties
 
 # Generate a new passwordless SSH key
-mkdir -p /var/lib/rundeck/.ssh/
-chown rundeck:rundeck /var/lib/rundeck/.ssh
-ssh-keygen -t rsa -f /var/lib/rundeck/.ssh/id_rsa -N ''
+#mkdir -p /var/lib/rundeck/.ssh/
+#chown rundeck:rundeck /var/lib/rundeck/.ssh
+#ssh-keygen -t rsa -f /var/lib/rundeck/.ssh/id_rsa -N ''
 
 # Reset rundeck system user password and allow root to log on with ssh
-echo -e "$RDPASS\n$RDPASS" | passwd
-sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd	# https://github.com/dotcloud/docker/issues/5663
+#echo -e "$RDPASS\n$RDPASS" | passwd
+#sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+#sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd	# https://github.com/dotcloud/docker/issues/5663
 
 # do these things at runtime:
-cat /profile >> /etc/rundeck/profile
+#cat /profile >> /etc/rundeck/profile
