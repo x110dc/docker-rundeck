@@ -14,7 +14,7 @@ ADD ./install.sh /
 ADD ./run.sh /
 RUN chmod +x /run.sh
 
-# Change Rundeck admin from default to CH4NGE_Me
+# Change Rundeck admin password from default
 ENV RDPASS RDPASS
 
 # Change this to your hostname (used for generating URLs):
@@ -22,6 +22,9 @@ ENV MYHOST MYHOST
 
 # From address when sending email:
 ENV MAILFROM MAILFROM
+
+# Download Rundeck
+ADD http://download.rundeck.org/deb/rundeck-2.3.2-1-GA.deb /tmp/rundeck.deb
 
 # Run the installation script
 RUN /install.sh
