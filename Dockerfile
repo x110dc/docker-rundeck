@@ -9,7 +9,6 @@ RUN apt-get install -yq openssh-client openjdk-7-jre
 ADD ./install.sh /
 
 ADD ./run.sh /
-RUN chmod +x /run.sh
 
 # Change Rundeck admin password from default
 ENV RDPASS RDPASS
