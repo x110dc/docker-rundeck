@@ -13,10 +13,9 @@ ADD ./run.sh /
 # Change Rundeck admin password from default
 ENV RDPASS RDPASS
 
-# Change this to your hostname (used for generating URLs):
 ENV MYHOST MYHOST
 
-# From address when sending email:
+# From address when sending email
 ENV MAILFROM MAILFROM
 
 # Download Rundeck
@@ -31,5 +30,6 @@ ENTRYPOINT /run.sh
 VOLUME /var/lib/rundeck/data
 VOLUME /var/lib/rundeck/var
 VOLUME /var/lib/rundeck/logs
+VOLUME /var/rundeck/projects
 
 EXPOSE 4440 4443
