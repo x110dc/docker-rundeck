@@ -13,9 +13,8 @@ sed -i 's/&>>\/var\/log\/rundeck\/service.log &$//g' /etc/init.d/rundeckd
 # (this is needed for things like sending email:)
 #sed -i '/grails.serverURL/d' /etc/rundeck/rundeck-config.properties
 
+sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 sed -i "s/localhost:4440/$MYHOST:4440/g" /etc/rundeck/rundeck-config.properties
-
-echo "grails.mail.default.from=$MAILFROM" >> /etc/rundeck/rundeck-config.properties
 
 # Generate a new passwordless SSH key
 mkdir -p /var/lib/rundeck/.ssh/
