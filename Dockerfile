@@ -32,4 +32,8 @@ RUN chown rundeck /tmp/rundeck
 
 ENTRYPOINT /run.sh
 
-EXPOSE 4440 22
+VOLUME /var/lib/rundeck/data
+VOLUME /var/lib/rundeck/var
+VOLUME /var/lib/rundeck/logs
+
+EXPOSE 4440 4443
