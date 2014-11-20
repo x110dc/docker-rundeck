@@ -2,11 +2,8 @@ FROM x110dc/base
 MAINTAINER Daniel Craigmile
 ENV DEBIAN_FRONTEND noninteractive
 
-# Download Rundeck
-ADD http://download.rundeck.org/deb/rundeck-2.1.2-1-GA.deb /tmp/rundeck.deb
-
-# Add supervisord services
-ADD ./supervisor /etc/supervisor
+RUN apt-get update
+RUN apt-get install -yq openssh-client openjdk-7-jre
 
 # Add rundeck to sudoers
 ADD ./sudoers.d/rundeck /etc/sudoers.d/
