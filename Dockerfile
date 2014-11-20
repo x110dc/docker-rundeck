@@ -8,9 +8,6 @@ RUN apt-get install -yq openssh-client openjdk-7-jre
 # Add rundeck to sudoers
 ADD ./sudoers.d/rundeck /etc/sudoers.d/
 
-# Add files to cron.d
-ADD ./cron.d /etc/
-
 # Add the install commands
 ADD ./install.sh /
 
