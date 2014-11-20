@@ -1,31 +1,15 @@
 #### Build:
 
 ```
-docker build --tag="rundeck" .
-```
-
-or
-
-```
 make build
 ```
 
 #### Run:
 
 ```
-docker run --detach=true --publish=49440:4440 rundeck
+docker run --detach=true --publish=4440:4440 --publish=4443:4443 \
+  --env=MYHOST=foo.com \
+  --env=RDPASS=mypassword \
+  --env=MAILFROM=foo@bar.baz \
+  x110dc/rundeck
 ```
-
-or
-
-```
-make run
-```
-
-or
-
-```
-docker run --detach=true --publish=49440:4440 x110dc/docker-rundeck
-```
-
-(I like to use the long version of the parameters because it's easier for me remember what they mean.)
