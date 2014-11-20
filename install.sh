@@ -5,11 +5,9 @@ rm -f /tmp/rundeck.deb
 chown -R rundeck /etc/rundeck
 chmod 4755 /usr/bin/sudo	# no suid bit was set for sudo!?
 
-# Modify init script
+# Modify init script to force it to run in the foreground (more
+# Docker-friendly)
 sed -i 's/&>>\/var\/log\/rundeck\/service.log &$//g' /etc/init.d/rundeckd
-
-# Change the Rundeck admin password
-sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 
 ## remove the grails.serverURL so that absolute URLs aren't generated
 # (this is needed for things like sending email:)
