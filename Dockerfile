@@ -11,7 +11,8 @@ ADD ./sudoers.d/rundeck /etc/sudoers.d/
 # Add the install commands
 ADD ./install.sh /
 
-ADD ./profile /
+ADD ./run.sh /
+RUN chmod +x /run.sh
 
 # Change Rundeck admin from default to CH4NGE_Me
 ENV RDPASS RDPASS
