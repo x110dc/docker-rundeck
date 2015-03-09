@@ -19,11 +19,14 @@ ENV MYHOST MYHOST
 ENV MAILFROM MAILFROM
 
 # Download Rundeck
-ADD http://download.rundeck.org/deb/rundeck-2.3.2-1-GA.deb /tmp/rundeck.deb
+ADD http://download.rundeck.org/deb/rundeck-2.4.2-1-GA.deb /tmp/rundeck.deb
 
 # Run the installation script
 RUN /install.sh
 RUN chown rundeck /tmp/rundeck
+
+RUN sed -i "s|localhost|rundeck.peoplepattern.com|g" /etc/rundeck/framework.properties && \
+    sed -i "s|framework.server.password = admin|framework.server.password = kTvHYpHFoT7GT9|g" /etc/rundeck/framework.properties
 
 ENTRYPOINT /run.sh
 
