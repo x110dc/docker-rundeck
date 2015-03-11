@@ -28,6 +28,8 @@ RUN chown rundeck /tmp/rundeck
 RUN sed -i "s|localhost|rundeck.peoplepattern.com|g" /etc/rundeck/framework.properties && \
     sed -i "s|framework.server.password = admin|framework.server.password = kTvHYpHFoT7GT9|g" /etc/rundeck/framework.properties
 
+ADD http://github.com/rundeck-plugins/rundeck-ec2-nodes-plugin/releases/download/1.5/rundeck-ec2-nodes-plugin-1.5.jar  /var/lib/rundeck/libext/rundeck-ec2-nodes-plugin-1.5.jar
+
 ENTRYPOINT /run.sh
 
 VOLUME /var/lib/rundeck/data
