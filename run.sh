@@ -15,4 +15,4 @@ sed -i "s/RDPASS/$RDPASS/g" /etc/rundeck/realm.properties
 echo "grails.mail.default.from=$MAILFROM" >> /etc/rundeck/rundeck-config.properties
 
 #echo -e "$RDPASS\n$RDPASS" | passwd
-/etc/init.d/rundeckd start
+/etc/init.d/rundeckd start -Dserver.http.port=${PORT:=4440}
