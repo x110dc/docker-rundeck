@@ -16,6 +16,9 @@ sed -i 's/&>>\/var\/log\/rundeck\/service.log &$//g' /etc/init.d/rundeckd
 sed -i "s/^admin:admin/admin:$RDPASS/g" /etc/rundeck/realm.properties
 sed -i "s/localhost:4440/$MYHOST:4440/g" /etc/rundeck/rundeck-config.properties
 
+sed -i "s,/etc/rundeck/jaas-loginmodule.conf,AUTH_LOGIN_CONFIG,g" /etc/rundeck/profile
+sed -i "s/RDpropertyfilelogin/LOGINMODULE_NAME/g" /etc/rundeck/profile
+
 # Generate a new passwordless SSH key
 #mkdir -p /var/lib/rundeck/.ssh/
 #chown rundeck:rundeck /var/lib/rundeck/.ssh
