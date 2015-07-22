@@ -19,7 +19,7 @@ ENV MYHOST MYHOST
 ENV MAILFROM MAILFROM
 
 # Download Rundeck
-ADD http://download.rundeck.org/deb/rundeck-2.3.2-1-GA.deb /tmp/rundeck.deb
+ADD http://download.rundeck.org/deb/rundeck-2.5.2-1-GA.deb /tmp/rundeck.deb
 
 # Run the installation script
 RUN /install.sh
