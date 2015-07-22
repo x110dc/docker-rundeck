@@ -14,5 +14,12 @@ sed -i "s/RDPASS/$RDPASS/g" /etc/rundeck/realm.properties
 # Change the Rundeck admin password
 echo "grails.mail.default.from=$MAILFROM" >> /etc/rundeck/rundeck-config.properties
 
-#echo -e "$RDPASS\n$RDPASS" | passwd
+if [ -n "${LDAP_CONFIG_PATH+1}" ]; then
+  sed -i "s,AUTH_LOGIN_CONFIG,$LDAP_CONFIG_PATH,g" /etc/rundeck/profile
+  sed -i "s/LOGINMODULE_NAME/ldap/g" /etc/rundeck/profile
+else
+  sed -i "s,AUTH_LOGIN_CONFIG,/etc/rundeck/jaas-loginmodule.conf,g" /etc/rundeck/profile
+  sed -i "s/LOGINMODULE_NAME/RDpropertyfilelogin/g" /etc/rundeck/profile
+fi
+
 /etc/init.d/rundeckd start

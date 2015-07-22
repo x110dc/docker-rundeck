@@ -12,3 +12,9 @@ If you want to build it yourself:
 ```
 make build
 ```
+
+
+## Configuration
+
+* Use LDAP for authentication: `-v /path/to/jaas-ldap.conf:/etc/rundeck/jaas-ldap.conf -e LDAP_CONFIG_PATH=/etc/rundeck/jaas-ldap.conf`
+* Supply a custom `admin.aclpolicy`: `-v /path/to/policy/on/host.aclpolicy:/etc/rundeck/admin.aclpolicy`
